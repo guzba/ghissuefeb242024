@@ -1,7 +1,9 @@
-import ../src/ghissuefeb242024, data/twitter, std/times
+import ../src/ghissuefeb242024, std/times
 
 # nim c --mm:arc --threads:on -d:release --debugger:native -rf .\tests\bench.nim
 # nim c --mm:arc --threads:off -d:release --debugger:native -rf .\tests\bench.nim
+
+let twitterJson = readFile("tests/data/twitter.json")
 
 let start = epochTime()
 for _ in 0 ..< 1000:
