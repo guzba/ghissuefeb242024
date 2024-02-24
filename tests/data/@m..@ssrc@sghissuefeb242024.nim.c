@@ -109,7 +109,7 @@ static N_INLINE(NIM_BOOL*, nimErrorFlag)(void);
 N_LIB_PRIVATE N_NIMCALL(void, skipWhitespace__OOZsrcZghissuefeb505250485052_u311)(NimStringV2 input_p0, NI* i_p1);
 N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u514)(tyObject_JsonValue__uCGGzW2rJe79beqik9bDpGpg* dest_p0);
 N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u417)(tySequence__GWYSlerFhra4AOZvZKHY0g dest_p0);
-N_LIB_PRIVATE N_NOCONV(void, dealloc)(void* p_p0);
+N_LIB_PRIVATE N_NOCONV(void, deallocShared)(void* p_p0);
 N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u435)(tySequence__7EjOVYE5olWfkfx9a9aqpmkA dest_p0);
 N_LIB_PRIVATE N_NIMCALL(void, alignedDealloc)(void* p_p0, NI align_p1);
 static N_INLINE(NIM_BOOL, isSome__OOZsrcZghissuefeb505250485052_u338)(tyObject_Option__DyvT1W1J9cH3pNGbdf9bKaHQ* self_p0);
@@ -256,7 +256,7 @@ static const NimStringV2 TM__833z7zPoMB6e6R37dhlEww_60 = {34, (NimStrPayload*)&T
 N_LIB_PRIVATE NimStringV2 t__OOZsrcZghissuefeb505250485052_u23;
 N_LIB_PRIVATE NimStringV2 f__OOZsrcZghissuefeb505250485052_u24;
 N_LIB_PRIVATE NimStringV2 n__OOZsrcZghissuefeb505250485052_u25;
-extern NIM_BOOL nimInErrorMode__system_u3423;
+extern NIM_THREADVAR NIM_BOOL nimInErrorMode__system_u3501;
 
 #line 19 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system\\memory.nim"
 static N_INLINE(void, nimSetMem__systemZmemory_u7)(void* a_p0, int v_p1, NI size_p2) {	void* T1_;
@@ -266,7 +266,7 @@ static N_INLINE(void, nimSetMem__systemZmemory_u7)(void* a_p0, int v_p1, NI size
 #line 423 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system\\excpt.nim"
 static N_INLINE(NIM_BOOL*, nimErrorFlag)(void) {	NIM_BOOL* result;
 #line 424
-	result = (&nimInErrorMode__system_u3423);	return result;}
+	result = (&nimInErrorMode__system_u3501);	return result;}
 
 #line 30 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system\\memory.nim"
 static N_INLINE(void, nimZeroMem)(void* p_p0, NI size_p1) {NIM_BOOL* nimErr_;{nimErr_ = nimErrorFlag();
@@ -320,7 +320,7 @@ N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u435)(ty
 }
 
 #line 155 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u417)(tySequence__GWYSlerFhra4AOZvZKHY0g dest_p0) {	NI colontmp_;NIM_BOOL* nimErr_;{nimErr_ = nimErrorFlag();	colontmp_ = ((NI)0);	{		while (1) {			NI T3_;			T3_ = dest_p0.len;			if (!(colontmp_ < T3_)) goto LA2;			if (dest_p0.p->data[colontmp_].Field0.p && !(dest_p0.p->data[colontmp_].Field0.p->cap & NIM_STRLIT_FLAG)) { dealloc(dest_p0.p->data[colontmp_].Field0.p);}			switch (dest_p0.p->data[colontmp_].Field1.kind) {
+N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u417)(tySequence__GWYSlerFhra4AOZvZKHY0g dest_p0) {	NI colontmp_;NIM_BOOL* nimErr_;{nimErr_ = nimErrorFlag();	colontmp_ = ((NI)0);	{		while (1) {			NI T3_;			T3_ = dest_p0.len;			if (!(colontmp_ < T3_)) goto LA2;			if (dest_p0.p->data[colontmp_].Field0.p && !(dest_p0.p->data[colontmp_].Field0.p->cap & NIM_STRLIT_FLAG)) { deallocShared(dest_p0.p->data[colontmp_].Field0.p);}			switch (dest_p0.p->data[colontmp_].Field1.kind) {
 			case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)0):
 			case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)1):
 			case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)3):
@@ -421,7 +421,7 @@ N_LIB_PRIVATE N_NIMCALL(void, eqwasMoved___OOZsrcZghissuefeb505250485052_u394)(t
 }
 
 #line 155 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u397)(tyTuple__p1gWUZNwgdYmfM9cVpWzxIg* dest_p0) {NIM_BOOL* nimErr_;{nimErr_ = nimErrorFlag();	if ((*dest_p0).Field0.p && !((*dest_p0).Field0.p->cap & NIM_STRLIT_FLAG)) { dealloc((*dest_p0).Field0.p);}	switch ((*dest_p0).Field1.kind) {
+N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___OOZsrcZghissuefeb505250485052_u397)(tyTuple__p1gWUZNwgdYmfM9cVpWzxIg* dest_p0) {NIM_BOOL* nimErr_;{nimErr_ = nimErrorFlag();	if ((*dest_p0).Field0.p && !((*dest_p0).Field0.p->cap & NIM_STRLIT_FLAG)) { deallocShared((*dest_p0).Field0.p);}	switch ((*dest_p0).Field1.kind) {
 	case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)0):
 	case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)1):
 	case ((tyEnum_JsonValueKind__UNcEmPrj5Khj9bU42iYJDzw)3):
@@ -596,7 +596,7 @@ NimStringV2 colontmpD_;							tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*
 							colontmpD_.len = 0; colontmpD_.p = NIM_NIL;							T34_ = NIM_NIL;							T34_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));							(*T34_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);							(*T34_).Sup.name = "CatchableError";							T35_.len = 0; T35_.p = NIM_NIL;							colontmpD_ = dollar___systemZdollars_u8((*i_p1));							if (NIM_UNLIKELY(*nimErr_)) goto LA33_;							T35_ = rawNewString(colontmpD_.len + 40);appendString((&T35_), TM__833z7zPoMB6e6R37dhlEww_22);appendString((&T35_), colontmpD_);							(*T34_).Sup.message = T35_;							(*T34_).Sup.parent = ((Exception*) NIM_NIL);							raiseExceptionEx((Exception*)T34_, "CatchableError", "parseString", "ghissuefeb242024.nim", 110);goto LA33_;							{								LA33_:;							}
 							{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-								if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}							}
+								if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}							}
 							if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;						}
 LA31_: ;
 
@@ -611,7 +611,7 @@ LA17_: ;
 NimStringV2 colontmpD__2;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T40_;					NimStringV2 T41_;					colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;					T40_ = NIM_NIL;					T40_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T40_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T40_).Sup.name = "CatchableError";					T41_.len = 0; T41_.p = NIM_NIL;					colontmpD__2 = dollar___systemZdollars_u8((*i_p1));					if (NIM_UNLIKELY(*nimErr_)) goto LA39_;					T41_ = rawNewString(colontmpD__2.len + 29);appendString((&T41_), TM__833z7zPoMB6e6R37dhlEww_24);appendString((&T41_), colontmpD__2);					(*T40_).Sup.message = T41_;					(*T40_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T40_, "CatchableError", "parseString", "ghissuefeb242024.nim", 113);goto LA39_;					{						LA39_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__2.p);}					}
+						if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__2.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 				break;
 				}
@@ -697,7 +697,7 @@ NIM_CHAR c;				if (!(i_2 < ((NI)4))) goto LA3;
 NimStringV2 colontmpD_;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T9_;					NimStringV2 T10_;					colontmpD_.len = 0; colontmpD_.p = NIM_NIL;					T9_ = NIM_NIL;					T9_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T9_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T9_).Sup.name = "CatchableError";					T10_.len = 0; T10_.p = NIM_NIL;					colontmpD_ = dollar___systemZdollars_u8((NI)(start_p1 + i));					if (NIM_UNLIKELY(*nimErr_)) goto LA8_;					T10_ = rawNewString(colontmpD_.len + 21);appendString((&T10_), TM__833z7zPoMB6e6R37dhlEww_27);appendString((&T10_), colontmpD_);					(*T9_).Sup.message = T10_;					(*T9_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T9_, "CatchableError", "getu4", "ghissuefeb242024.nim", 42);goto LA8_;					{						LA8_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}					}
+						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 				break;
 				}
@@ -785,7 +785,7 @@ NI32 r1;					r1 = getu4__OOZsrcZghissuefeb505250485052_u28(input_p0, (NI)(i + ((
 NimStringV2 colontmpD_;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T20_;					NimStringV2 T21_;					colontmpD_.len = 0; colontmpD_.p = NIM_NIL;					T20_ = NIM_NIL;					T20_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T20_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T20_).Sup.name = "CatchableError";					T21_.len = 0; T21_.p = NIM_NIL;					colontmpD_ = dollar___systemZdollars_u8(i);					if (NIM_UNLIKELY(*nimErr_)) goto LA19_;					T21_ = rawNewString(colontmpD_.len + 29);appendString((&T21_), TM__833z7zPoMB6e6R37dhlEww_28);appendString((&T21_), colontmpD_);					(*T20_).Sup.message = T21_;					(*T20_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T20_, "CatchableError", "unescapeString", "ghissuefeb242024.nim", 80);goto LA19_;					{						LA19_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}					}
+						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 				break;
 				}
@@ -881,7 +881,7 @@ LA10_: ;
 NimStringV2 colontmpD_;		tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T14_;		NimStringV2 T15_;		colontmpD_.len = 0; colontmpD_.p = NIM_NIL;		T14_ = NIM_NIL;		T14_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));		(*T14_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);		(*T14_).Sup.name = "CatchableError";		T15_.len = 0; T15_.p = NIM_NIL;		colontmpD_ = dollar___systemZdollars_u8((*i_p1));		if (NIM_UNLIKELY(*nimErr_)) goto LA13_;		T15_ = rawNewString(colontmpD_.len + 26);appendString((&T15_), TM__833z7zPoMB6e6R37dhlEww_41);appendString((&T15_), colontmpD_);		(*T14_).Sup.message = T15_;		(*T14_).Sup.parent = ((Exception*) NIM_NIL);		raiseExceptionEx((Exception*)T14_, "CatchableError", "parseBoolean", "ghissuefeb242024.nim", 182);goto LA13_;		{			LA13_:;		}
 		{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-			if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}		}
+			if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}		}
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;	}
 LA1_: ;
 	}BeforeRet_: ;
@@ -903,7 +903,7 @@ LA5_: ;
 NimStringV2 colontmpD_;		tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T9_;		NimStringV2 T10_;		colontmpD_.len = 0; colontmpD_.p = NIM_NIL;		T9_ = NIM_NIL;		T9_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));		(*T9_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);		(*T9_).Sup.name = "CatchableError";		T10_.len = 0; T10_.p = NIM_NIL;		colontmpD_ = dollar___systemZdollars_u8((*i_p1));		if (NIM_UNLIKELY(*nimErr_)) goto LA8_;		T10_ = rawNewString(colontmpD_.len + 17);appendString((&T10_), TM__833z7zPoMB6e6R37dhlEww_43);appendString((&T10_), colontmpD_);		(*T9_).Sup.message = T10_;		(*T9_).Sup.parent = ((Exception*) NIM_NIL);		raiseExceptionEx((Exception*)T9_, "CatchableError", "parseNull", "ghissuefeb242024.nim", 188);goto LA8_;		{			LA8_:;		}
 		{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-			if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}		}
+			if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}		}
 		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;	}
 LA1_: ;
 	}BeforeRet_: ;
@@ -959,7 +959,7 @@ NimStringV2 colontmpD_;			tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T15
 			colontmpD_.len = 0; colontmpD_.p = NIM_NIL;			T15_ = NIM_NIL;			T15_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));			(*T15_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);			(*T15_).Sup.name = "CatchableError";			T16_.len = 0; T16_.p = NIM_NIL;			colontmpD_ = dollar___systemZdollars_u8(start);			if (NIM_UNLIKELY(*nimErr_)) goto LA14_;			T16_ = rawNewString(colontmpD_.len + 18);appendString((&T16_), TM__833z7zPoMB6e6R37dhlEww_46);appendString((&T16_), colontmpD_);			(*T15_).Sup.message = T16_;			(*T15_).Sup.parent = ((Exception*) NIM_NIL);			raiseExceptionEx((Exception*)T15_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 137);goto LA14_;			{				LA14_:;			}
 			{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-				if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}			}
+				if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}			}
 			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;		}
 LA12_: ;
 
@@ -991,7 +991,7 @@ NimStringV2 colontmpD__2;			tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T
 			colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;			T34_ = NIM_NIL;			T34_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));			(*T34_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);			(*T34_).Sup.name = "CatchableError";			T35_.len = 0; T35_.p = NIM_NIL;			colontmpD__2 = dollar___systemZdollars_u8(start);			if (NIM_UNLIKELY(*nimErr_)) goto LA33_;			T35_ = rawNewString(colontmpD__2.len + 18);appendString((&T35_), TM__833z7zPoMB6e6R37dhlEww_47);appendString((&T35_), colontmpD__2);			(*T34_).Sup.message = T35_;			(*T34_).Sup.parent = ((Exception*) NIM_NIL);			raiseExceptionEx((Exception*)T34_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 145);goto LA33_;			{				LA33_:;			}
 			{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-				if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__2.p);}			}
+				if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__2.p);}			}
 			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;		}
 LA31_: ;
 	}
@@ -1014,7 +1014,7 @@ NimStringV2 colontmpD__3;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*
 					colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;					T50_ = NIM_NIL;					T50_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T50_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T50_).Sup.name = "CatchableError";					T51_.len = 0; T51_.p = NIM_NIL;					colontmpD__3 = dollar___systemZdollars_u8(start);					if (NIM_UNLIKELY(*nimErr_)) goto LA49_;					T51_ = rawNewString(colontmpD__3.len + 18);appendString((&T51_), TM__833z7zPoMB6e6R37dhlEww_48);appendString((&T51_), colontmpD__3);					(*T50_).Sup.message = T51_;					(*T50_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T50_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 152);goto LA49_;					{						LA49_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD__3.p && !(colontmpD__3.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__3.p);}					}
+						if (colontmpD__3.p && !(colontmpD__3.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__3.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 LA47_: ;
 
@@ -1025,7 +1025,7 @@ NimStringV2 colontmpD__4;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*
 					colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;					T61_ = NIM_NIL;					T61_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T61_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T61_).Sup.name = "CatchableError";					T62_.len = 0; T62_.p = NIM_NIL;					colontmpD__4 = dollar___systemZdollars_u8(start);					if (NIM_UNLIKELY(*nimErr_)) goto LA60_;					T62_ = rawNewString(colontmpD__4.len + 18);appendString((&T62_), TM__833z7zPoMB6e6R37dhlEww_49);appendString((&T62_), colontmpD__4);					(*T61_).Sup.message = T62_;					(*T61_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T61_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 154);goto LA60_;					{						LA60_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD__4.p && !(colontmpD__4.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__4.p);}					}
+						if (colontmpD__4.p && !(colontmpD__4.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__4.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 LA58_: ;
 
@@ -1046,7 +1046,7 @@ NimStringV2 colontmpD__5;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*
 					colontmpD__5.len = 0; colontmpD__5.p = NIM_NIL;					T73_ = NIM_NIL;					T73_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T73_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T73_).Sup.name = "CatchableError";					T74_.len = 0; T74_.p = NIM_NIL;					colontmpD__5 = dollar___systemZdollars_u8(start);					if (NIM_UNLIKELY(*nimErr_)) goto LA72_;					T74_ = rawNewString(colontmpD__5.len + 18);appendString((&T74_), TM__833z7zPoMB6e6R37dhlEww_50);appendString((&T74_), colontmpD__5);					(*T73_).Sup.message = T74_;					(*T73_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T73_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 159);goto LA72_;					{						LA72_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD__5.p && !(colontmpD__5.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__5.p);}					}
+						if (colontmpD__5.p && !(colontmpD__5.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__5.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;				}
 LA70_: ;
 
@@ -1062,7 +1062,7 @@ NimStringV2 colontmpD__6;						tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg
 						colontmpD__6.len = 0; colontmpD__6.p = NIM_NIL;						T88_ = NIM_NIL;						T88_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));						(*T88_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);						(*T88_).Sup.name = "CatchableError";						T89_.len = 0; T89_.p = NIM_NIL;						colontmpD__6 = dollar___systemZdollars_u8(start);						if (NIM_UNLIKELY(*nimErr_)) goto LA87_;						T89_ = rawNewString(colontmpD__6.len + 18);appendString((&T89_), TM__833z7zPoMB6e6R37dhlEww_51);appendString((&T89_), colontmpD__6);						(*T88_).Sup.message = T89_;						(*T88_).Sup.parent = ((Exception*) NIM_NIL);						raiseExceptionEx((Exception*)T88_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 162);goto LA87_;						{							LA87_:;						}
 						{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-							if (colontmpD__6.p && !(colontmpD__6.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__6.p);}						}
+							if (colontmpD__6.p && !(colontmpD__6.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__6.p);}						}
 						if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;					}
 LA85_: ;
 
@@ -1089,7 +1089,7 @@ LA77_: ;
 NimStringV2 colontmpD__7;				tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T96_;				NimStringV2 T97_;				colontmpD__7.len = 0; colontmpD__7.p = NIM_NIL;				T96_ = NIM_NIL;				T96_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));				(*T96_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);				(*T96_).Sup.name = "CatchableError";				T97_.len = 0; T97_.p = NIM_NIL;				colontmpD__7 = dollar___systemZdollars_u8(start);				if (NIM_UNLIKELY(*nimErr_)) goto LA95_;				T97_ = rawNewString(colontmpD__7.len + 18);appendString((&T97_), TM__833z7zPoMB6e6R37dhlEww_52);appendString((&T97_), colontmpD__7);				(*T96_).Sup.message = T97_;				(*T96_).Sup.parent = ((Exception*) NIM_NIL);				raiseExceptionEx((Exception*)T96_, "CatchableError", "parseNumber", "ghissuefeb242024.nim", 170);goto LA95_;				{					LA95_:;				}
 				{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-					if (colontmpD__7.p && !(colontmpD__7.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__7.p);}				}
+					if (colontmpD__7.p && !(colontmpD__7.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__7.p);}				}
 				if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;			}
 			break;
 			}
@@ -1186,7 +1186,7 @@ NI start_2;				key.len = 0; key.p = NIM_NIL;				nimZeroMem((void*)(&value), size
 					eqdestroy___OOZsrcZghissuefeb505250485052_u514((&value));
 					if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 #line 370
-					if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { dealloc(key.p);}
+					if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { deallocShared(key.p);}
 #line 207 "C:\\Users\\Me\\Documents\\GitHub\\ghissuefeb242024\\src\\ghissuefeb242024.nim"
 					goto LA2;
 				}
@@ -1199,7 +1199,7 @@ NimStringV2 colontmpD_;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T
 					colontmpD_.len = 0; colontmpD_.p = NIM_NIL;					T16_ = NIM_NIL;					T16_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T16_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T16_).Sup.name = "CatchableError";					T17_.len = 0; T17_.p = NIM_NIL;					colontmpD_ = dollar___systemZdollars_u8(i);					if (NIM_UNLIKELY(*nimErr_)) goto LA15_;					T17_ = rawNewString(colontmpD_.len + 39);appendString((&T17_), TM__833z7zPoMB6e6R37dhlEww_9);appendString((&T17_), colontmpD_);					(*T16_).Sup.message = T17_;					(*T16_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T16_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 210);goto LA15_;					{						LA15_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD_.p);}					}
+						if (colontmpD_.p && !(colontmpD_.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD_.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto LA5_;				}
 LA13_: ;
 
@@ -1283,7 +1283,7 @@ LA32_: ;
 							eqdestroy___OOZsrcZghissuefeb505250485052_u514((&value));
 							if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 #line 370
-							if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { dealloc(key.p);}
+							if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { deallocShared(key.p);}
 #line 230 "C:\\Users\\Me\\Documents\\GitHub\\ghissuefeb242024\\src\\ghissuefeb242024.nim"
 							goto LA4;
 							{								LA31_:;							}
@@ -1304,7 +1304,7 @@ NimStringV2 colontmpD__2;								tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6
 								colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;								T62_ = NIM_NIL;								T62_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));								(*T62_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);								(*T62_).Sup.name = "CatchableError";								T63_.len = 0; T63_.p = NIM_NIL;								colontmpD__2 = dollar___systemZdollars_u8(i);								if (NIM_UNLIKELY(*nimErr_)) goto LA61_;								T63_ = rawNewString(colontmpD__2.len + 14);appendString((&T63_), TM__833z7zPoMB6e6R37dhlEww_17);appendString((&T63_), colontmpD__2);								(*T62_).Sup.message = T63_;								(*T62_).Sup.parent = ((Exception*) NIM_NIL);								raiseExceptionEx((Exception*)T62_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 234);goto LA61_;								{									LA61_:;								}
 								{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-									if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__2.p);}								}
+									if (colontmpD__2.p && !(colontmpD__2.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__2.p);}								}
 								if (NIM_UNLIKELY(*nimErr_)) goto LA5_;							}
 LA59_: ;
 
@@ -1341,7 +1341,7 @@ NimStringV2 colontmpD__3;								tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6
 								colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;								T80_ = NIM_NIL;								T80_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));								(*T80_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);								(*T80_).Sup.name = "CatchableError";								T81_.len = 0; T81_.p = NIM_NIL;								colontmpD__3 = dollar___systemZdollars_u8(i);								if (NIM_UNLIKELY(*nimErr_)) goto LA79_;								T81_ = rawNewString(colontmpD__3.len + 14);appendString((&T81_), TM__833z7zPoMB6e6R37dhlEww_31);appendString((&T81_), colontmpD__3);								(*T80_).Sup.message = T81_;								(*T80_).Sup.parent = ((Exception*) NIM_NIL);								raiseExceptionEx((Exception*)T80_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 247);goto LA79_;								{									LA79_:;								}
 								{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-									if (colontmpD__3.p && !(colontmpD__3.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__3.p);}								}
+									if (colontmpD__3.p && !(colontmpD__3.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__3.p);}								}
 								if (NIM_UNLIKELY(*nimErr_)) goto LA5_;							}
 LA77_: ;
 
@@ -1357,7 +1357,7 @@ LA68_: ;
 NimStringV2 colontmpD__4;							tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T86_;							NimStringV2 T87_;							colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;							T86_ = NIM_NIL;							T86_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));							(*T86_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);							(*T86_).Sup.name = "CatchableError";							T87_.len = 0; T87_.p = NIM_NIL;							colontmpD__4 = dollar___systemZdollars_u8(i);							if (NIM_UNLIKELY(*nimErr_)) goto LA85_;							T87_ = rawNewString(colontmpD__4.len + 16);appendString((&T87_), TM__833z7zPoMB6e6R37dhlEww_33);appendChar((&T87_), input_p0.p->data[i]);appendString((&T87_), TM__833z7zPoMB6e6R37dhlEww_36);appendString((&T87_), colontmpD__4);							(*T86_).Sup.message = T87_;							(*T86_).Sup.parent = ((Exception*) NIM_NIL);							raiseExceptionEx((Exception*)T86_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 251);goto LA85_;							{								LA85_:;							}
 							{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-								if (colontmpD__4.p && !(colontmpD__4.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__4.p);}							}
+								if (colontmpD__4.p && !(colontmpD__4.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__4.p);}							}
 							if (NIM_UNLIKELY(*nimErr_)) goto LA5_;						}
 LA66_: ;
 					}
@@ -1435,7 +1435,7 @@ LA96_: ;
 							eqdestroy___OOZsrcZghissuefeb505250485052_u514((&value));
 							if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 #line 370
-							if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { dealloc(key.p);}
+							if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { deallocShared(key.p);}
 #line 268 "C:\\Users\\Me\\Documents\\GitHub\\ghissuefeb242024\\src\\ghissuefeb242024.nim"
 							goto LA4;
 							{								LA95_:;							}
@@ -1456,7 +1456,7 @@ NimStringV2 colontmpD__5;								tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6
 								colontmpD__5.len = 0; colontmpD__5.p = NIM_NIL;								T126_ = NIM_NIL;								T126_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));								(*T126_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);								(*T126_).Sup.name = "CatchableError";								T127_.len = 0; T127_.p = NIM_NIL;								colontmpD__5 = dollar___systemZdollars_u8(i);								if (NIM_UNLIKELY(*nimErr_)) goto LA125_;								T127_ = rawNewString(colontmpD__5.len + 14);appendString((&T127_), TM__833z7zPoMB6e6R37dhlEww_38);appendString((&T127_), colontmpD__5);								(*T126_).Sup.message = T127_;								(*T126_).Sup.parent = ((Exception*) NIM_NIL);								raiseExceptionEx((Exception*)T126_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 272);goto LA125_;								{									LA125_:;								}
 								{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-									if (colontmpD__5.p && !(colontmpD__5.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__5.p);}								}
+									if (colontmpD__5.p && !(colontmpD__5.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__5.p);}								}
 								if (NIM_UNLIKELY(*nimErr_)) goto LA5_;							}
 LA123_: ;
 
@@ -1538,7 +1538,7 @@ LA23_: ;
 NimStringV2 colontmpD__6;					tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg* T142_;					NimStringV2 T143_;					colontmpD__6.len = 0; colontmpD__6.p = NIM_NIL;					T142_ = NIM_NIL;					T142_ = (tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg*) nimNewObj(sizeof(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg), NIM_ALIGNOF(tyObject_CatchableError__rxHq9bMT89aGeTbnViShW6Fg));					(*T142_).Sup.Sup.m_type = (&NTIv2__rxHq9bMT89aGeTbnViShW6Fg_);					(*T142_).Sup.name = "CatchableError";					T143_.len = 0; T143_.p = NIM_NIL;					colontmpD__6 = dollar___systemZdollars_u8(i);					if (NIM_UNLIKELY(*nimErr_)) goto LA141_;					T143_ = rawNewString(colontmpD__6.len + 16);appendString((&T143_), TM__833z7zPoMB6e6R37dhlEww_53);appendChar((&T143_), input_p0.p->data[i]);appendString((&T143_), TM__833z7zPoMB6e6R37dhlEww_54);appendString((&T143_), colontmpD__6);					(*T142_).Sup.message = T143_;					(*T142_).Sup.parent = ((Exception*) NIM_NIL);					raiseExceptionEx((Exception*)T142_, "CatchableError", "parseJson", "ghissuefeb242024.nim", 302);goto LA141_;					{						LA141_:;					}
 					{
 #line 370 "C:\\Users\\Me\\.choosenim\\toolchains\\nim-2.0.2\\lib\\system.nim"
-						if (colontmpD__6.p && !(colontmpD__6.p->cap & NIM_STRLIT_FLAG)) { dealloc(colontmpD__6.p);}					}
+						if (colontmpD__6.p && !(colontmpD__6.p->cap & NIM_STRLIT_FLAG)) { deallocShared(colontmpD__6.p);}					}
 					if (NIM_UNLIKELY(*nimErr_)) goto LA5_;				}
 				break;
 				}
@@ -1650,7 +1650,7 @@ LA146_: ;
 					eqdestroy___OOZsrcZghissuefeb505250485052_u514((&value));
 					if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 #line 370
-					if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { dealloc(key.p);}					*nimErr_ = oldNimErrFin5_;				}
+					if (key.p && !(key.p->cap & NIM_STRLIT_FLAG)) { deallocShared(key.p);}					*nimErr_ = oldNimErrFin5_;				}
 				if (NIM_UNLIKELY(*nimErr_)) goto LA1_;			} LA4: ;
 		}
 	} LA2: ;
